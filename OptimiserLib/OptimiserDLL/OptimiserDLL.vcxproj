@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{E5627284-AA15-4960-91E7-137D88CE4DBE}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>OptimiserDLL</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)\$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)\$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)\$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)\$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;OPTIMISERDLL_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ARMADILLO_INC);$(BOOST_INC)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;blas_win64_MTd.lib;lapack_win64_MTd.lib;"$(SolutionDir)\$(Platform)\$(Configuration)\FunctionDLL.lib";%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(LAPACK_LIB)\$(Configuration);$(BOOST_LIB64);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;OPTIMISERDLL_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ARMADILLO_INC);$(BOOST_INC)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalLibraryDirectories>$(LAPACK_LIB)\$(Configuration);$(BOOST_LIB32);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;blas_win32_MTd.lib;lapack_win32_MTd.lib;"$(SolutionDir)\$(Platform)\$(Configuration)\FunctionDLL.lib";</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;OPTIMISERDLL_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ARMADILLO_INC);$(BOOST_INC)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(LAPACK_LIB)\$(Configuration);$(BOOST_LIB32);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;blas_win32_MT.lib;lapack_win32_MT.lib;"$(SolutionDir)\$(Platform)\$(Configuration)\FunctionDLL.lib";%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;OPTIMISERDLL_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ARMADILLO_INC);$(BOOST_INC)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(LAPACK_LIB)\$(Configuration);$(BOOST_LIB64);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;blas_win64_MT.lib;lapack_win64_MT.lib;"$(SolutionDir)\$(Platform)\$(Configuration)\FunctionDLL.lib";%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Optimiser\BackTracking.h" />
+    <ClInclude Include="..\Optimiser\BracketBoundingPhase.h" />
+    <ClInclude Include="..\Optimiser\Direction.h" />
+    <ClInclude Include="..\Optimiser\DirectionCauchy.h" />
+    <ClInclude Include="..\Optimiser\DirectionFactory.h" />
+    <ClInclude Include="..\Optimiser\DirectionNewton.h" />
+    <ClInclude Include="..\Optimiser\DirectionQuasiNewton.h" />
+    <ClInclude Include="..\Optimiser\ExtremumFactory.h" />
+    <ClInclude Include="..\Optimiser\LinearConstraintImpl.h" />
+    <ClInclude Include="..\Optimiser\LineSearch.h" />
+    <ClInclude Include="..\Optimiser\LineSearchFactory.h" />
+    <ClInclude Include="..\Optimiser\MaximiserBrent.h" />
+    <ClInclude Include="..\Optimiser\MinimiserBisection.h" />
+    <ClInclude Include="..\Optimiser\MinimiserBoxed.h" />
+    <ClInclude Include="..\Optimiser\MinimiserBrent.h" />
+    <ClInclude Include="..\Optimiser\MinimiserExhaustive.h" />
+    <ClInclude Include="..\Optimiser\MinimiserGolden.h" />
+    <ClInclude Include="..\Optimiser\NonlinearConstraintImpl.h" />
+    <ClInclude Include="..\Optimiser\optimiser.h" />
+    <ClInclude Include="..\Optimiser\OptimiserBox.h" />
+    <ClInclude Include="..\Optimiser\OptimiserBrent.h" />
+    <ClInclude Include="..\Optimiser\OptimiserCauchy.h" />
+    <ClInclude Include="..\Optimiser\OptimiserCG.h" />
+    <ClInclude Include="..\Optimiser\OptimiserComplex.h" />
+    <ClInclude Include="..\Optimiser\OptimiserEllipsoid.h" />
+    <ClInclude Include="..\Optimiser\OptimiserFactory.h" />
+    <ClInclude Include="..\Optimiser\OptimiserFactoryVM.h" />
+    <ClInclude Include="..\Optimiser\OptimiserGRG.h" />
+    <ClInclude Include="..\Optimiser\OptimiserHennig.h" />
+    <ClInclude Include="..\Optimiser\OptimiserHJ.h" />
+    <ClInclude Include="..\Optimiser\OptimiserMOM.h" />
+    <ClInclude Include="..\Optimiser\OptimiserPenalty.h" />
+    <ClInclude Include="..\Optimiser\OptimiserRandom.h" />
+    <ClInclude Include="..\Optimiser\OptimiserVMLBFGS.h" />
+    <ClInclude Include="..\Optimiser\OptimiserMarquardt.h" />
+    <ClInclude Include="..\Optimiser\OptimiserNewton.h" />
+    <ClInclude Include="..\Optimiser\OptimiserNonParHen.h" />
+    <ClInclude Include="..\Optimiser\OptimiserPowell.h" />
+    <ClInclude Include="..\Optimiser\OptimiserSimplex.h" />
+    <ClInclude Include="..\Optimiser\OptimiserVariableMetric.h" />
+    <ClInclude Include="..\Optimiser\OptimiserVMBFGS.h" />
+    <ClInclude Include="..\Optimiser\OptimiserVMBlend.h" />
+    <ClInclude Include="..\Optimiser\OptimiserVMBroyden.h" />
+    <ClInclude Include="..\Optimiser\OptimiserVMDFP.h" />
+    <ClInclude Include="..\Optimiser\OptimiserVMPSB.h" />
+    <ClInclude Include="..\Optimiser\OptimiserVMSR1.h" />
+    <ClInclude Include="..\Optimiser\STLExtension.h" />
+    <ClInclude Include="..\Optimiser\StrongWolfe.h" />
+    <ClInclude Include="..\Optimiser\WeakWolfe.h" />
+    <ClInclude Include="Exporter.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Optimiser\BackTracking.cpp" />
+    <ClCompile Include="..\Optimiser\BracketBoundingPhase.cpp" />
+    <ClCompile Include="..\Optimiser\DirectionCauchy.cpp" />
+    <ClCompile Include="..\Optimiser\DirectionFactory.cpp" />
+    <ClCompile Include="..\Optimiser\DirectionNewton.cpp" />
+    <ClCompile Include="..\Optimiser\DirectionQuasiNewton.cpp" />
+    <ClCompile Include="..\Optimiser\ExtremumFactory.cpp" />
+    <ClCompile Include="..\Optimiser\LineSearchFactory.cpp" />
+    <ClCompile Include="..\Optimiser\MaximiserBrent.cpp" />
+    <ClCompile Include="..\Optimiser\MinimiserBisection.cpp" />
+    <ClCompile Include="..\Optimiser\MinimiserBoxed.cpp" />
+    <ClCompile Include="..\Optimiser\MinimiserBrent.cpp" />
+    <ClCompile Include="..\Optimiser\MinimiserExhaustive.cpp" />
+    <ClCompile Include="..\Optimiser\MinimiserGolden.cpp" />
+    <ClCompile Include="..\Optimiser\OptimiserBox.cpp" />
+    <ClCompile Include="..\Optimiser\OptimiserBrent.cpp" />
+    <ClCompile Include="..\Optimiser\OptimiserCauchy.cpp" />
+    <ClCompile Include="..\Optimiser\OptimiserCG.cpp" />
+    <ClCompile Include="..\Optimiser\OptimiserComplex.cpp" />
+    <ClCompile Include="..\Optimiser\OptimiserEllipsoid.cpp" />
+    <ClCompile Include="..\Optimiser\OptimiserFactory.cpp" />
+    <ClCompile Include="..\Optimiser\OptimiserFactoryVM.cpp" />
+    <ClCompile Include="..\Optimiser\OptimiserGRG.cpp" />
+    <ClCompile Include="..\Optimiser\OptimiserHennig.cpp" />
+    <ClCompile Include="..\Optimiser\OptimiserHJ.cpp" />
+    <ClCompile Include="..\Optimiser\OptimiserMOM.cpp" />
+    <ClCompile Include="..\Optimiser\OptimiserPenalty.cpp" />
+    <ClCompile Include="..\Optimiser\OptimiserRandom.cpp" />
+    <ClCompile Include="..\Optimiser\OptimiserVMLBFGS.cpp" />
+    <ClCompile Include="..\Optimiser\OptimiserMarquardt.cpp" />
+    <ClCompile Include="..\Optimiser\OptimiserNewton.cpp" />
+    <ClCompile Include="..\Optimiser\OptimiserNonParHen.cpp" />
+    <ClCompile Include="..\Optimiser\OptimiserPowell.cpp" />
+    <ClCompile Include="..\Optimiser\OptimiserSimplex.cpp" />
+    <ClCompile Include="..\Optimiser\OptimiserVMBFGS.cpp" />
+    <ClCompile Include="..\Optimiser\OptimiserVMBlend.cpp" />
+    <ClCompile Include="..\Optimiser\OptimiserVMBroyden.cpp" />
+    <ClCompile Include="..\Optimiser\OptimiserVMDFP.cpp" />
+    <ClCompile Include="..\Optimiser\OptimiserVMPSB.cpp" />
+    <ClCompile Include="..\Optimiser\OptimiserVMSR1.cpp" />
+    <ClCompile Include="..\Optimiser\StrongWolfe.cpp" />
+    <ClCompile Include="..\Optimiser\WeakWolfe.cpp" />
+    <ClCompile Include="OptimiserDLL.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FunctionDLL\FunctionDLL.vcxproj">
+      <Project>{3b341ab7-1be1-4eef-9fe6-edeac9654808}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

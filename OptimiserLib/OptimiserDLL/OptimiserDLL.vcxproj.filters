@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Source Files\ConstraintMethods">
+      <UniqueIdentifier>{c57e4c90-7e48-4140-a4c5-cd83b66fba4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DerivativeMethods">
+      <UniqueIdentifier>{421644d9-505c-4aa5-809f-12ff11e5add1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\LineSearch">
+      <UniqueIdentifier>{87c069d2-6bae-406d-ac8f-495fd94289eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Minimisers">
+      <UniqueIdentifier>{ba797397-dd1d-4349-80cb-18fb4a3200f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\NoDerivativeMethods">
+      <UniqueIdentifier>{de956aac-a6aa-467f-a721-965b852a4bd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Factories">
+      <UniqueIdentifier>{a2d84feb-8b4e-465e-9a7b-ac167e0fbbb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\BracketingMethods">
+      <UniqueIdentifier>{6eea8636-eb7b-4d95-86d3-d77769149463}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\VariableMetricMethods">
+      <UniqueIdentifier>{87310b24-6c74-409b-bfd5-e794b6d1bb6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Constraints">
+      <UniqueIdentifier>{bf28bf50-c9b2-485f-a15e-c5fb2a8115c6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\OptimiserEllipsoid.h">
+      <Filter>Source Files\ConstraintMethods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\OptimiserGRG.h">
+      <Filter>Source Files\ConstraintMethods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\OptimiserNewton.h">
+      <Filter>Source Files\DerivativeMethods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\BackTracking.h">
+      <Filter>Source Files\LineSearch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\Direction.h">
+      <Filter>Source Files\LineSearch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\DirectionCauchy.h">
+      <Filter>Source Files\LineSearch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\DirectionNewton.h">
+      <Filter>Source Files\LineSearch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\DirectionQuasiNewton.h">
+      <Filter>Source Files\LineSearch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\LineSearch.h">
+      <Filter>Source Files\LineSearch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\StrongWolfe.h">
+      <Filter>Source Files\LineSearch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\WeakWolfe.h">
+      <Filter>Source Files\LineSearch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\MaximiserBrent.h">
+      <Filter>Source Files\Minimisers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\MinimiserBisection.h">
+      <Filter>Source Files\Minimisers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\MinimiserBoxed.h">
+      <Filter>Source Files\Minimisers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\MinimiserBrent.h">
+      <Filter>Source Files\Minimisers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\MinimiserExhaustive.h">
+      <Filter>Source Files\Minimisers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\MinimiserGolden.h">
+      <Filter>Source Files\Minimisers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\OptimiserBrent.h">
+      <Filter>Source Files\NoDerivativeMethods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\OptimiserPowell.h">
+      <Filter>Source Files\NoDerivativeMethods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\STLExtension.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\LinearConstraintImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\NonlinearConstraintImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\optimiser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Exporter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\OptimiserBox.h">
+      <Filter>Source Files\NoDerivativeMethods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\OptimiserSimplex.h">
+      <Filter>Source Files\NoDerivativeMethods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\OptimiserHJ.h">
+      <Filter>Source Files\NoDerivativeMethods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\OptimiserCauchy.h">
+      <Filter>Source Files\DerivativeMethods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\BracketBoundingPhase.h">
+      <Filter>Source Files\BracketingMethods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\OptimiserMarquardt.h">
+      <Filter>Source Files\DerivativeMethods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\OptimiserCG.h">
+      <Filter>Source Files\DerivativeMethods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\OptimiserVMBFGS.h">
+      <Filter>Source Files\VariableMetricMethods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\OptimiserVMBroyden.h">
+      <Filter>Source Files\VariableMetricMethods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\OptimiserVMDFP.h">
+      <Filter>Source Files\VariableMetricMethods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\OptimiserVMSR1.h">
+      <Filter>Source Files\VariableMetricMethods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\OptimiserNonParHen.h">
+      <Filter>Source Files\VariableMetricMethods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\OptimiserVariableMetric.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\OptimiserVMBlend.h">
+      <Filter>Source Files\VariableMetricMethods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\LineSearchFactory.h">
+      <Filter>Source Files\Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\ExtremumFactory.h">
+      <Filter>Source Files\Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\OptimiserFactoryVM.h">
+      <Filter>Source Files\Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\OptimiserFactory.h">
+      <Filter>Source Files\Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\DirectionFactory.h">
+      <Filter>Source Files\Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\OptimiserVMLBFGS.h">
+      <Filter>Source Files\VariableMetricMethods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\OptimiserHennig.h">
+      <Filter>Source Files\VariableMetricMethods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\OptimiserVMPSB.h">
+      <Filter>Source Files\VariableMetricMethods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\OptimiserPenalty.h">
+      <Filter>Source Files\ConstraintMethods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\OptimiserMOM.h">
+      <Filter>Source Files\ConstraintMethods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\OptimiserComplex.h">
+      <Filter>Source Files\ConstraintMethods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Optimiser\OptimiserRandom.h">
+      <Filter>Source Files\ConstraintMethods</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OptimiserDLL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\OptimiserEllipsoid.cpp">
+      <Filter>Source Files\ConstraintMethods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\OptimiserGRG.cpp">
+      <Filter>Source Files\ConstraintMethods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\OptimiserNewton.cpp">
+      <Filter>Source Files\DerivativeMethods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\BackTracking.cpp">
+      <Filter>Source Files\LineSearch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\DirectionCauchy.cpp">
+      <Filter>Source Files\LineSearch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\DirectionNewton.cpp">
+      <Filter>Source Files\LineSearch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\DirectionQuasiNewton.cpp">
+      <Filter>Source Files\LineSearch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\StrongWolfe.cpp">
+      <Filter>Source Files\LineSearch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\WeakWolfe.cpp">
+      <Filter>Source Files\LineSearch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\MaximiserBrent.cpp">
+      <Filter>Source Files\Minimisers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\MinimiserBisection.cpp">
+      <Filter>Source Files\Minimisers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\MinimiserBrent.cpp">
+      <Filter>Source Files\Minimisers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\MinimiserExhaustive.cpp">
+      <Filter>Source Files\Minimisers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\MinimiserGolden.cpp">
+      <Filter>Source Files\Minimisers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\OptimiserBrent.cpp">
+      <Filter>Source Files\NoDerivativeMethods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\OptimiserPowell.cpp">
+      <Filter>Source Files\NoDerivativeMethods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\MinimiserBoxed.cpp">
+      <Filter>Source Files\Minimisers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\DirectionFactory.cpp">
+      <Filter>Source Files\Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\ExtremumFactory.cpp">
+      <Filter>Source Files\Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\LineSearchFactory.cpp">
+      <Filter>Source Files\Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\OptimiserFactory.cpp">
+      <Filter>Source Files\Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\OptimiserBox.cpp">
+      <Filter>Source Files\NoDerivativeMethods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\OptimiserSimplex.cpp">
+      <Filter>Source Files\NoDerivativeMethods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\OptimiserHJ.cpp">
+      <Filter>Source Files\NoDerivativeMethods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\OptimiserCauchy.cpp">
+      <Filter>Source Files\DerivativeMethods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\BracketBoundingPhase.cpp">
+      <Filter>Source Files\BracketingMethods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\OptimiserMarquardt.cpp">
+      <Filter>Source Files\DerivativeMethods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\OptimiserCG.cpp">
+      <Filter>Source Files\DerivativeMethods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\OptimiserFactoryVM.cpp">
+      <Filter>Source Files\Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\OptimiserVMBFGS.cpp">
+      <Filter>Source Files\VariableMetricMethods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\OptimiserVMBroyden.cpp">
+      <Filter>Source Files\VariableMetricMethods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\OptimiserVMDFP.cpp">
+      <Filter>Source Files\VariableMetricMethods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\OptimiserVMSR1.cpp">
+      <Filter>Source Files\VariableMetricMethods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\OptimiserNonParHen.cpp">
+      <Filter>Source Files\VariableMetricMethods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\OptimiserVMBlend.cpp">
+      <Filter>Source Files\VariableMetricMethods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\OptimiserVMLBFGS.cpp">
+      <Filter>Source Files\VariableMetricMethods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\OptimiserHennig.cpp">
+      <Filter>Source Files\VariableMetricMethods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\OptimiserVMPSB.cpp">
+      <Filter>Source Files\VariableMetricMethods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\OptimiserPenalty.cpp">
+      <Filter>Source Files\ConstraintMethods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\OptimiserMOM.cpp">
+      <Filter>Source Files\ConstraintMethods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\OptimiserComplex.cpp">
+      <Filter>Source Files\ConstraintMethods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Optimiser\OptimiserRandom.cpp">
+      <Filter>Source Files\ConstraintMethods</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
