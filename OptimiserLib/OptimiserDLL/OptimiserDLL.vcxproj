@@ -159,10 +159,10 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Optimiser\BackTracking.h" />
-    <ClInclude Include="..\Optimiser\BracketBoundingPhase.h" />
-    <ClInclude Include="..\Optimiser\Direction.h" />
-    <ClInclude Include="..\Optimiser\DirectionCauchy.h" />
+    <ClInclude Include="..\Optimiser\include/BackTracking.h" />
+    <ClInclude Include="..\Optimiser\include/BracketBoundingPhase.h" />
+    <ClInclude Include="..\Optimiser\include/Direction.h" />
+    <ClInclude Include="..\Optimiser\include/DirectionCauchy.h" />
     <ClInclude Include="..\Optimiser\DirectionFactory.h" />
     <ClInclude Include="..\Optimiser\DirectionNewton.h" />
     <ClInclude Include="..\Optimiser\DirectionQuasiNewton.h" />
@@ -213,11 +213,11 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Optimiser\BackTracking.cpp" />
-    <ClCompile Include="..\Optimiser\BracketBoundingPhase.cpp" />
-    <ClCompile Include="..\Optimiser\DirectionCauchy.cpp" />
-    <ClCompile Include="..\Optimiser\DirectionFactory.cpp" />
-    <ClCompile Include="..\Optimiser\DirectionNewton.cpp" />
+    <ClCompile Include="..\Optimiser\src/BackTracking.cpp" />
+    <ClCompile Include="..\Optimiser\src/BracketBoundingPhase.cpp" />
+    <ClCompile Include="..\Optimiser\src/DirectionCauchy.cpp" />
+    <ClCompile Include="..\Optimiser\src/DirectionFactory.cpp" />
+    <ClCompile Include="..\Optimiser\src/DirectionNewton.cpp" />
     <ClCompile Include="..\Optimiser\DirectionQuasiNewton.cpp" />
     <ClCompile Include="..\Optimiser\ExtremumFactory.cpp" />
     <ClCompile Include="..\Optimiser\LineSearchFactory.cpp" />

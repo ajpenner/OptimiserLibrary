@@ -157,8 +157,8 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Optimiser\CompoundMOM.h" />
-    <ClInclude Include="..\Optimiser\CompoundPenalty.h" />
+    <ClInclude Include="..\Optimiser\include/CompoundMOM.h" />
+    <ClInclude Include="..\Optimiser\include/CompoundPenalty.h" />
     <ClInclude Include="..\Optimiser\constraints.h" />
     <ClInclude Include="..\Optimiser\Deb.h" />
     <ClInclude Include="..\Optimiser\FirstConstraint.h" />
@@ -174,9 +174,9 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Optimiser\CompoundMOM.cpp" />
-    <ClCompile Include="..\Optimiser\CompoundPenalty.cpp" />
-    <ClCompile Include="..\Optimiser\Deb.cpp" />
+    <ClCompile Include="..\Optimiser\src/CompoundMOM.cpp" />
+    <ClCompile Include="..\Optimiser\src/CompoundPenalty.cpp" />
+    <ClCompile Include="..\Optimiser\src/Deb.cpp" />
     <ClCompile Include="..\Optimiser\FirstConstraint.cpp" />
     <ClCompile Include="..\Optimiser\Himmelblau.cpp" />
     <ClCompile Include="..\Optimiser\NegativeFirstConstraint.cpp" />
