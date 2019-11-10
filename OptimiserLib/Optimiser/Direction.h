@@ -1,0 +1,24 @@
+// Direction.h
+//
+// 2016
+//////////////////////////////////////////////////
+
+#pragma once
+
+//////////////////////////////////////////////////
+
+#include "../OptimiserDLL/Exporter.h"
+#include <armadillo>
+
+class IFunction;
+
+//////////////////////////////////////////////////
+
+class OPTIMISER IDirection
+{
+public:
+	virtual arma::vec GetDirection (const IFunction& function, const arma::vec& vPosition) const = 0;
+	virtual ~IDirection () {};
+};
+
+//////////////////////////////////////////////////

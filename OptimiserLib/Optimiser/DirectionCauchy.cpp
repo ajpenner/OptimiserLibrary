@@ -1,0 +1,21 @@
+// DirectionCauchy.cpp
+//
+// 2016
+//////////////////////////////////////////////////
+
+#include "stdafx.h"
+
+//////////////////////////////////////////////////
+
+#include "BackTracking.h"
+#include "optimisable.h"
+#include "DirectionCauchy.h"
+
+//////////////////////////////////////////////////
+
+arma::vec CDirectionCauchy::GetDirection(const IFunction& function, const arma::vec& vPosition) const
+{
+	return -arma::normalise(function.CalculateGradient(vPosition));
+}
+
+//////////////////////////////////////////////////
