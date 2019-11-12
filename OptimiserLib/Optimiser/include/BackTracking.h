@@ -6,8 +6,11 @@
 #pragma once
 
 //////////////////////////////////////////////////
-
+#ifdef _WIN32
 #include "../OptimiserDLL/Exporter.h"
+#else
+#define OPTIMISER
+#endif
 #include "LineSearch.h"
 #include <armadillo>
 
@@ -21,8 +24,12 @@ class IDirection;
 class OPTIMISER CLineSearchBackTrack : public ILineSearch
 {
 public:
-	CLineSearchBackTrack () : m_rStepLength(1.0), m_rTolerance(realEmpty), m_ptrFunction(nullptr) {};
-	~CLineSearchBackTrack () {};
+	CLineSearchBackTrack () 
+		: m_rTolerance(std::numeric_limits<double>::max())
+		, m_rStepLength(1.0)
+		, m_ptrFunction(nullptr) {}
+
+	~CLineSearchBackTrack () {}
 
 	void SetFunction(std::shared_ptr<const IFunction> ptrFunction) override;
 	void SetDirectionMethod(const IDirection* pcDirection) override;

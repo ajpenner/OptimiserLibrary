@@ -3,14 +3,15 @@
 // 2016
 //////////////////////////////////////////////////
 
+#ifdef _WIN32
 #include "stdafx.h"
+#endif
 
 //////////////////////////////////////////////////
 
 #include "OptimiserSimplex.h"
 #include "optimisable.h"
 #include <cassert>
-#include <iostream>
 
 //////////////////////////////////////////////////
 
@@ -88,12 +89,12 @@ void COptimiserSimplex::Optimise (double target)
 	}
 
 	std::vector<double> eval;
-	for each (const arma::vec& vec in m_simplex)
+	for(const arma::vec& vec : m_simplex)
 	{
 		eval.push_back(m_ptrOptimisableFunction->Evaluate(vec));
 	}
 
-	auto terminate = realEmpty;
+	auto terminate = std::numeric_limits<double>::max();
 	do
 	{
 		auto itWorst = std::max_element (eval.cbegin (), eval.cend ());
@@ -141,7 +142,7 @@ void COptimiserSimplex::Optimise (double target)
 		m_simplex.push_back( xNew );
 		eval.push_back( m_ptrOptimisableFunction->Evaluate(xNew) );
 
-		terminate = realZero; // should use std::accumulate, but there is a bug using armadillo in a lambda
+		terminate = 0x0; // should use std::accumulate, but there is a bug using armadillo in a lambda
 		for (auto it = eval.cbegin (); it != eval.cend (); ++it)
 		{
 			terminate += std::pow(*it-fC,2);
@@ -157,4 +158,4 @@ void COptimiserSimplex::Optimise (double target)
 	return;
 }
 
-//////////////////////////////////////////////////
+//////////////////////////////`////////////////////

@@ -3,16 +3,15 @@
 // 2017
 //////////////////////////////////////////////////
 
-#pragma once
-
-//////////////////////////////////////////////////
-
+#ifdef _WIN32
 #include "stdafx.h"
+#endif
 #include "SecondConstraint.h"
+#include <cassert>
 
 //////////////////////////////////////////////////
 
-CSecondConstraint::CSecondConstraint () : m_rA(realEmpty), m_rB(realEmpty)
+CSecondConstraint::CSecondConstraint () : m_rA(std::numeric_limits<double>::max()), m_rB(std::numeric_limits<double>::max())
 {
 }
 

@@ -7,7 +7,7 @@
 
 //////////////////////////////////////////////////
 
-#include "optimiserVariableMetric.h"
+#include "OptimiserVariableMetric.h"
 #include "optimisable.h"
 #include <limits>
 #include <armadillo>

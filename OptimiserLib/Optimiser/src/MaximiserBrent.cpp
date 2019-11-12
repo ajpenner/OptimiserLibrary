@@ -3,7 +3,9 @@
 // 2017
 //////////////////////////////////////////////////
 
+#ifdef _WIN32
 #include "stdafx.h"
+#endif
 
 //////////////////////////////////////////////////
 
@@ -38,12 +40,12 @@ void CMaximiserBrent::_PerformSearch(double& rLeft, double& rRight)
 	auto bFlag = true;
 
 	auto vBrent = arma::vec (m_LeftBracket.size ());
-	vBrent.fill (realEmpty);
+	vBrent.fill (std::numeric_limits<double>::max());
 
 	do
 	{
 		auto vValueBracket = arma::vec (m_LeftBracket.size ());
-		vValueBracket.fill (realEmpty);
+		vValueBracket.fill (std::numeric_limits<double>::max());
 		if (rLeft != rMid && rRight != rMid)
 		{
 			vValueBracket = (m_LeftBracket* rRight*rMid / (rLeft - rRight) / (rLeft - rMid)).eval ();

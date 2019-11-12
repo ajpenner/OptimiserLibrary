@@ -14,14 +14,11 @@
 
 //////////////////////////////////////////////////
 
-namespace eHJParameters
+enum class HJParameters
 {
-	enum type
-	{
-		eIncrement = 0,
-		eReduction
-	};
-}
+	eIncrement = 0,
+	eReduction
+};
 
 class OPTIMISER COptimiserHJ : public BOptimiser
 {

@@ -7,7 +7,11 @@
 
 //////////////////////////////////////////////////
 
+#ifdef _WIN32
 #include "../OptimiserDLL/Exporter.h"
+#else
+#define OPTIMISER
+#endif
 #include <armadillo>
 #include <memory>
 

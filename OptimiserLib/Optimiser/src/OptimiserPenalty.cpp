@@ -3,7 +3,9 @@
 // 2017
 //////////////////////////////////////////////////
 
+#ifdef _WIN32
 #include "stdafx.h"
+#endif
 
 //////////////////////////////////////////////////
 
@@ -12,7 +14,6 @@
 #include "CompoundPenalty.h"
 
 #include <cassert>
-#include <iostream>
 #include <armadillo>
 
 #include <boost/foreach.hpp>
@@ -29,7 +30,7 @@ void COptimiserPenalty::AddConstraint ( std::shared_ptr<const IConstraint> ptrCo
 void COptimiserPenalty::SetParameters (const std::vector<variant>& parameters)
 {
 	m_rPenalty = boost::get<double> (parameters[ePenaltyParameters::ePenalty]);
-	assert (m_rPenalty >= realZero);
+	assert (m_rPenalty >= 0x0);
 	m_rScaleFactor = boost::get<double> (parameters[ePenaltyParameters::eScaleFactor]);
 	assert (m_rScaleFactor >= 1);
 }
@@ -46,8 +47,8 @@ void COptimiserPenalty::Optimise (double target)
 	coeff.resize(m_vConstraints.size());
 	std::generate_n(coeff.begin(), m_vConstraints.size(), [&]() { return m_rPenalty; });
 	auto ptrPenalisedObjective = std::make_shared<CCompoundPenaltyFunction>(m_ptrOptimisableFunction, m_vConstraints, coeff);
-	auto deltaOOF(realEmpty);
-	double valueMainFunction(realEmpty);
+	auto deltaOOF(std::numeric_limits<double>::max());
+	double valueMainFunction(std::numeric_limits<double>::max());
 	size_t iIteration (0);
 	do
 	{

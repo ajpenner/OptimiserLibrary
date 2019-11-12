@@ -3,7 +3,9 @@
 // 2016
 //////////////////////////////////////////////////
 
+#ifdef _WIN32
 #include "stdafx.h"
+#endif
 
 //////////////////////////////////////////////////
 
@@ -16,7 +18,6 @@
 #include "MaximiserBrent.h" // this should be a single class
 
 #include <cassert>
-#include <iostream>
 #include <armadillo>
 
 #include <boost/foreach.hpp>

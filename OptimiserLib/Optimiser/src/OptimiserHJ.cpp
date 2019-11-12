@@ -3,20 +3,21 @@
 // 2017
 //////////////////////////////////////////////////
 
+#ifdef _WIN32
 #include "stdafx.h"
+#endif
 
 //////////////////////////////////////////////////
 
 #include "OptimiserHJ.h"
 #include "optimisable.h"
 #include <cassert>
-#include <iostream>
 
 //////////////////////////////////////////////////
 
-COptimiserHJ::COptimiserHJ () :
-	m_IncrementFactor(0.5),
-	m_ReductionFactor(0.5)
+COptimiserHJ::COptimiserHJ () 
+	: m_ReductionFactor(0.5)
+	, m_IncrementFactor(0.5)
 { 
 }
 
@@ -53,8 +54,8 @@ void COptimiserHJ::InverseOptimise(double target)
 void COptimiserHJ::SetParameters (const std::vector<variant>& parameters)
 {
 	assert (parameters.size () >= 2);
-	m_IncrementFactor = boost::get<double>(parameters[eHJParameters::eIncrement]);
-	m_ReductionFactor = boost::get<double>(parameters[eHJParameters::eReduction]);
+	m_IncrementFactor = boost::get<double>(parameters[HJParameters::eIncrement]);
+	m_ReductionFactor = boost::get<double>(parameters[HJParameters::eReduction]);
 };
 
 //////////////////////////////////////////////////
@@ -107,7 +108,7 @@ void COptimiserHJ::Optimise (double target) // not completed
 	assert (m_ptrOptimisableFunction);
 	m_I = arma::eye (m_ptrOptimisableFunction->GetFunctionDimension (), m_ptrOptimisableFunction->GetFunctionDimension ());
 
-	m_OOFValue = realEmpty;
+	m_OOFValue = std::numeric_limits<double>::max();
 	arma::vec x2 = arma::zeros(m_ptrOptimisableFunction->GetFunctionDimension());
 	arma::vec xp = m_MinVector;
 	bool bSuccess = true;

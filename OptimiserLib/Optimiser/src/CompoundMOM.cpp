@@ -5,19 +5,17 @@
 // 2017
 //////////////////////////////////////////////////
 
-#pragma once
-
-//////////////////////////////////////////////////
-
+#ifdef _WIN32
 #include "stdafx.h"
+#endif
 #include "CompoundMOM.h"
 #include <memory>
-#include "boost\iterator\zip_iterator.hpp"
+#include "boost/iterator/zip_iterator.hpp"
 
 //////////////////////////////////////////////////
 
 CCompoundMOMFunction::CCompoundMOMFunction (std::shared_ptr<const IFunction> ptrOOF, std::vector<std::shared_ptr<const IConstraint>> vConstraints, std::vector<double> vMultipliers) :
-	m_ptrOOF (ptrOOF), m_Constraints (vConstraints), m_Multiplier(vMultipliers), m_rPenalty(realZero)
+	m_ptrOOF (ptrOOF), m_Constraints (vConstraints), m_Multiplier(vMultipliers), m_rPenalty(0x0)
 {
 	assert (m_Multiplier.size () == m_Constraints.size ());
 }
@@ -52,7 +50,7 @@ double CCompoundMOMFunction::Evaluate(const arma::vec& vValues) const
 arma::vec CCompoundMOMFunction::CalculateGradient (const arma::vec& vec) const
 {
 	arma::vec value = m_ptrOOF->CalculateGradient (vec);
-	for each (const std::shared_ptr<const IConstraint> var in m_Constraints)
+	for(const std::shared_ptr<const IConstraint>& var : m_Constraints)
 	{
 		value += var->CalculateGradient (vec);
 	}
@@ -64,7 +62,7 @@ arma::vec CCompoundMOMFunction::CalculateGradient (const arma::vec& vec) const
 arma::mat CCompoundMOMFunction::CalculateHessian (const arma::vec& vec) const
 {
 	arma::mat value = m_ptrOOF->CalculateHessian (vec);
-	for each (const std::shared_ptr<const IConstraint> var in m_Constraints)
+	for (const std::shared_ptr<const IConstraint>& var : m_Constraints)
 	{
 		value += var->CalculateHessian (vec);
 	}

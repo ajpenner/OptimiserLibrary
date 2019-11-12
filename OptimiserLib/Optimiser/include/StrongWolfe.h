@@ -9,6 +9,7 @@
 
 #include "LineSearch.h"
 #include <armadillo>
+#include <cassert>
 
 //////////////////////////////////////////////////
 
@@ -20,7 +21,10 @@ class IDirection;
 class OPTIMISER CLineSearchStrongWolfe : public ILineSearch
 {
 public:
-	CLineSearchStrongWolfe () : m_rStepLength (1.0), m_rTolerance (realEmpty), m_ptrFunction (nullptr) 
+	CLineSearchStrongWolfe () 
+		: m_rTolerance (std::numeric_limits<double>::max())
+		, m_rStepLength (1.0)
+		, m_ptrFunction (nullptr) 
 	{
 		m_rC1 = 0.01; // set by user...
 		assert (0.0 < m_rC1);
@@ -40,7 +44,7 @@ public:
 
 private:
 
-	double CLineSearchStrongWolfe::Zoom (double rAlphaLo, double rAlphaHi,
+	double Zoom (double rAlphaLo, double rAlphaHi,
 		const arma::vec& vPosition,
 		const arma::vec& vDirection,
 		double rFunction,

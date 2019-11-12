@@ -3,13 +3,16 @@
 // 2016
 //////////////////////////////////////////////////
 
+#ifdef _WIN32
 #include "stdafx.h"
+#endif
 
 //////////////////////////////////////////////////
 
 #include "WeakWolfe.h"
 #include "optimisable.h"
 #include "Direction.h"
+#include <cassert>
 
 //////////////////////////////////////////////////
 
@@ -45,7 +48,7 @@ void CLineSearchWeakWolfe::CalculateStepLength (const arma::vec& vPosition) cons
 
 	auto rAlpha = 0.0;
 	m_rStepLength = 1.0;
-	auto rBeta = realEmpty;
+	auto rBeta = std::numeric_limits<double>::max();
 
 	auto rFunction = m_ptrFunction->Evaluate(vPosition);
 	auto vGrad = m_ptrFunction->CalculateGradient(vPosition);
@@ -69,7 +72,7 @@ void CLineSearchWeakWolfe::CalculateStepLength (const arma::vec& vPosition) cons
 		else if (rFp1p < rC2*rFp)
 		{
 			rAlpha = m_rStepLength;
-			if (rBeta == realEmpty)
+			if (rBeta == std::numeric_limits<double>::max())
 			{
 				m_rStepLength = 2.0*rAlpha;
 			}

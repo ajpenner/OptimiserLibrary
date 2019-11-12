@@ -3,7 +3,9 @@
 // 2017
 //////////////////////////////////////////////////
 
+#ifdef _WIN32
 #include "stdafx.h"
+#endif
 
 //////////////////////////////////////////////////
 
@@ -12,11 +14,10 @@
 #include "CompoundMOM.h"
 
 #include <cassert>
-#include <iostream>
 #include <armadillo>
 
 #include <boost/foreach.hpp>
-#include "boost\iterator\zip_iterator.hpp"
+#include <boost/iterator/zip_iterator.hpp>
 
 
 //////////////////////////////////////////////////
@@ -126,7 +127,7 @@ void COptimiserComplex::Optimise (double target)
 		return m_ptrOptimisableFunction->Evaluate (v);
 	});
 
-	auto escape = realEmpty;
+	auto escape = std::numeric_limits<double>::max();
 	do
 	{
 		auto itWorst = std::max_element(m_evaluations.cbegin(), m_evaluations.cend());

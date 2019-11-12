@@ -5,12 +5,11 @@
 // 2017
 //////////////////////////////////////////////////
 
-#pragma once
-
-//////////////////////////////////////////////////
-
+#ifdef _WIN32
 #include "stdafx.h"
+#endif
 #include "Himmelblau.h"
+#include <cassert>
 
 //////////////////////////////////////////////////
 
@@ -141,8 +140,8 @@ arma::vec CHimmelblauConstraint2::CalculateGradient (const arma::vec& vValues) c
 arma::mat CHimmelblauConstraint2::CalculateHessian (const arma::vec& vValues) const
 {
 	auto mReturn = arma::mat (m_iDimension, m_iDimension).zeros ();
-	mReturn (0, 0) = realZero;
-	mReturn (1, 1) = realZero;
+	mReturn (0, 0) = 0x0;
+	mReturn (1, 1) = 0x0;
 	return mReturn;
 }
 

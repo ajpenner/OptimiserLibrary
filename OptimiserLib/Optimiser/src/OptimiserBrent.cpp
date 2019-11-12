@@ -3,14 +3,15 @@
 // 2016
 //////////////////////////////////////////////////
 
+#ifdef _WIN32
 #include "stdafx.h"
+#endif
 
 //////////////////////////////////////////////////
 
 #include "OptimiserBrent.h"
 #include "optimisable.h"
 #include <cassert>
-#include <iostream>
 
 //////////////////////////////////////////////////
 
@@ -98,12 +99,12 @@ void COptimiserBrent::Optimise( double target )
 	auto bFlag = true;
 	
 	auto vBrent = arma::vec (m_LeftBracket.size ());
-	vBrent.fill(realEmpty);
+	vBrent.fill(std::numeric_limits<double>::max());
 
 	do
 	{
 		auto vValueBracket = arma::vec (m_LeftBracket.size ());
-		vValueBracket.fill ( realEmpty );
+		vValueBracket.fill ( std::numeric_limits<double>::max() );
 		if (rLeft != rMid && rRight != rMid)
 		{
 			vValueBracket = (m_LeftBracket* rRight*rMid / (rLeft - rRight) / (rLeft - rMid)).eval();

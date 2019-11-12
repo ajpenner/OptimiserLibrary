@@ -20,8 +20,12 @@ class IDirection;
 class OPTIMISER CLineSearchWeakWolfe : public ILineSearch
 {
 public:
-	CLineSearchWeakWolfe () : m_rStepLength(1.0), m_rTolerance(realEmpty), m_ptrFunction(nullptr) {};
-	~CLineSearchWeakWolfe () {};
+	CLineSearchWeakWolfe () 
+		: m_rTolerance(std::numeric_limits<double>::max())
+		, m_rStepLength(1.0)
+		, m_ptrFunction(nullptr) {}
+
+	~CLineSearchWeakWolfe () {}
 
 	void SetFunction (std::shared_ptr<const IFunction> ptrFunction) override;
 	void SetDirectionMethod (const IDirection* pcDirection) override;

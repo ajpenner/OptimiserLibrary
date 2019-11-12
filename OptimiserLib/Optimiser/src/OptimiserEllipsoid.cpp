@@ -3,14 +3,15 @@
 // 2017
 //////////////////////////////////////////////////
 
+#ifdef _WIN32
 #include "stdafx.h"
+#endif
 
 //////////////////////////////////////////////////
 
 #include "OptimiserEllipsoid.h"
 #include "optimisable.h"
 #include <cassert>
-#include <iostream>
 #include <armadillo>
 
 #include <boost/foreach.hpp>
@@ -34,7 +35,7 @@ void COptimiserEllipsoid::SetUnconstrainedOptimiser (IOptimiser* pcOptimiser)
 void COptimiserEllipsoid::SetParameters (const std::vector<variant>& parameters)
 {
 	m_rRadius = boost::get<double> (parameters[eEllipsoidParameters::eRadius]);
-	assert (m_rRadius >= realZero);
+	assert (m_rRadius >= 0x0);
 }
 
 //////////////////////////////////////////////////

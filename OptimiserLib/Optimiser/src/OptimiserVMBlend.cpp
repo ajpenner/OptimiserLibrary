@@ -3,7 +3,9 @@
 // 2017
 //////////////////////////////////////////////////
 
+#ifdef _WIN32
 #include "stdafx.h"
+#endif
 
 //////////////////////////////////////////////////
 
@@ -15,7 +17,6 @@
 #include "BracketBoundingPhase.h"
 
 #include <cassert>
-#include <iostream>
 
 //////////////////////////////////////////////////
 
@@ -74,7 +75,7 @@ arma::mat COptimiserVMBlend::UpdateHessian()
 void COptimiserVMBlend::SetParameters (const std::vector<variant>& parameters)
 {
 	m_blendRatio = boost::get<double> (parameters[eBlendParameters::eBlendRatio]);
-	assert (m_blendRatio >= realZero && m_blendRatio <= 1.0);
+	assert (m_blendRatio >= 0x0 && m_blendRatio <= 1.0);
 }
 
 //////////////////////////////////////////////////

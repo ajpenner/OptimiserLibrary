@@ -3,16 +3,15 @@
 // 2017
 //////////////////////////////////////////////////
 
-#pragma once
-
-//////////////////////////////////////////////////
-
+#ifdef _WIN32
 #include "stdafx.h"
+#endif
 #include "NegativeFirstConstraint.h"
+#include <cassert>
 
 //////////////////////////////////////////////////
 
-CNegativeFirstConstraint::CNegativeFirstConstraint () : m_rA(realEmpty), m_rB(realEmpty)
+CNegativeFirstConstraint::CNegativeFirstConstraint () : m_rA(std::numeric_limits<double>::max()), m_rB(std::numeric_limits<double>::max())
 {
 }
 

@@ -3,7 +3,9 @@
 // 2017
 //////////////////////////////////////////////////
 
+#ifdef _WIN32
 #include "stdafx.h"
+#endif
 
 //////////////////////////////////////////////////
 
@@ -13,7 +15,6 @@
 #include "BracketBoundingPhase.h"
 
 #include <cassert>
-#include <iostream>
 
 //////////////////////////////////////////////////
 
@@ -52,7 +53,7 @@ void COptimiserCG::Optimise (double target)
 
 	uint32_t k = 0;
 	auto rLambda = 1.0;
-	double differential = realZero;
+	double differential = 0x0;
 	auto fx = m_ptrOptimisableFunction->Evaluate(m_MinVector);
 	vGrad = m_ptrOptimisableFunction->CalculateGradient (m_MinVector);
 	arma::vec s = -vGrad;

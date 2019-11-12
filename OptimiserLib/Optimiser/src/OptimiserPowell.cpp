@@ -3,7 +3,9 @@
 // 2016
 //////////////////////////////////////////////////
 
+#ifdef _WIN32
 #include "stdafx.h"
+#endif
 
 //////////////////////////////////////////////////
 
@@ -73,7 +75,7 @@ void COptimiserPowell::Optimise ( double target )
 	}
 
 	std::vector<arma::vec> coordinates(3);
-	auto deltaOOF(realEmpty);
+	auto deltaOOF(std::numeric_limits<double>::max());
 	do
 	{
 		for (arma::uword i = 0; i < iDim; ++i) // replace with transform

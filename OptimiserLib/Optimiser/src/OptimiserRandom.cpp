@@ -3,7 +3,9 @@
 // 2017
 //////////////////////////////////////////////////
 
+#ifdef _WIN32
 #include "stdafx.h"
+#endif
 
 //////////////////////////////////////////////////
 
@@ -12,11 +14,10 @@
 #include "CompoundMOM.h"
 
 #include <cassert>
-#include <iostream>
 #include <armadillo>
 
 #include <boost/foreach.hpp>
-#include "boost\iterator\zip_iterator.hpp"
+#include <boost/iterator/zip_iterator.hpp>
 
 
 //////////////////////////////////////////////////
@@ -104,7 +105,7 @@ void COptimiserRandom::Optimise (double target)
 
 	assert (m_vRange.size () == m_dim);
 
-	auto escape = realEmpty;
+	auto escape = std::numeric_limits<double>::max();
 	do
 	{
 		SetRandomPoints ();

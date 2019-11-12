@@ -3,7 +3,9 @@
 // 2017
 //////////////////////////////////////////////////
 
+#ifdef _WIN32
 #include "stdafx.h"
+#endif
 
 //////////////////////////////////////////////////
 
@@ -15,7 +17,6 @@
 #include "BracketBoundingPhase.h"
 
 #include <cassert>
-#include <iostream>
 
 //////////////////////////////////////////////////
 
@@ -44,7 +45,7 @@ arma::mat COptimiserVMBroyden::UpdateHessian()
 void COptimiserVMBroyden::SetParameters (const std::vector<variant>& parameters)
 {
 	m_phi = boost::get<double> (parameters[eBroydenParameters::ePhi]);
-	assert (m_phi >= realZero && m_phi <= 1.0);
+	assert (m_phi >= 0x0 && m_phi <= 1.0);
 }
 
 double COptimiserVMBroyden::GetMinimalScaleValue (std::shared_ptr<CLinearFunction> ptrVF, CMinimiserGolden& minimiser, const arma::vec& direction)

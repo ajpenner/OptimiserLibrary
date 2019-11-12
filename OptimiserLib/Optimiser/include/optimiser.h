@@ -5,7 +5,9 @@
 
 #pragma once
 // using once shows this error once per header 
+#ifdef _WIN32
 #pragma warning( disable : 4251 ) // disable annoying dll-interface warning due to using armadillo (same will happen with STL)
+#endif
 
 //////////////////////////////////////////////////
 
@@ -14,7 +16,11 @@
 
 //////////////////////////////////////////////////
 
+#ifdef _WIN32
 #include "../OptimiserDLL/Exporter.h"
+#else
+#define OPTIMISER
+#endif
 
 class IFunction;
 // want to remove the arma::vec, this is too much
@@ -30,10 +36,10 @@ public:
 	virtual double GetOOF() const = 0;
 	virtual void SetTolerance (double rTolerance) = 0;
 	virtual arma::vec GetVector() const = 0;
-	virtual void SetInitialGuess (arma::vec& vGuess) = 0;
+	virtual void SetInitialGuess (const arma::vec& vGuess) = 0;
 	virtual void SetMaximumIterations (uint32_t max) = 0;
 
-	virtual double GetInverseOOF () const { return realEmpty;  };
+	virtual double GetInverseOOF () const { return std::numeric_limits<double>::max();  };
 	virtual arma::vec GetInverseVector () const { return arma::vec (); };
 	virtual void InverseOptimise (double target = 0) {};
 
@@ -52,16 +58,16 @@ public:
 	BOptimiser () : 
 		m_ptrOptimisableFunction (nullptr), 
 		m_MaxIteration (100), 
+		m_OOFValue (std::numeric_limits<double>::max()), 
 		m_rTolerance (1e-3), 
-		m_OOFValue (realEmpty), 
 		m_MinVector (arma::vec({0})) 
 	{}
 
 	BOptimiser (std::shared_ptr<const IFunction> ptrOptimiseable) : 
 		m_ptrOptimisableFunction (ptrOptimiseable), 
 		m_MaxIteration (100),
+		m_OOFValue (std::numeric_limits<double>::max()),
 		m_rTolerance (1e-3),
-		m_OOFValue (realEmpty),
 		m_MinVector (arma::vec ({ 0 })) 
 	{}
 
@@ -85,7 +91,7 @@ public:
 		return m_MinVector;
 	}
 
-	void SetInitialGuess (arma::vec& vGuess) override
+	void SetInitialGuess (const arma::vec& vGuess) override
 	{
 		m_MinVector = vGuess;
 	}

@@ -3,7 +3,9 @@
 // 2017
 //////////////////////////////////////////////////
 
+#ifdef _WIN32
 #include "stdafx.h"
+#endif
 
 //////////////////////////////////////////////////
 
@@ -12,7 +14,6 @@
 #include "CompoundMOM.h"
 
 #include <cassert>
-#include <iostream>
 #include <armadillo>
 
 #include <boost/foreach.hpp>
@@ -30,7 +31,7 @@ void COptimiserMOM::AddConstraint ( std::shared_ptr<const IConstraint> ptrConstr
 void COptimiserMOM::SetParameters (const std::vector<variant>& parameters)
 {
 	m_rPenalty = boost::get<double> (parameters[eMOMParameters::ePenalty]);
-	assert (m_rPenalty >= realZero);
+	assert (m_rPenalty >= 0x0);
 }
 
 //////////////////////////////////////////////////
@@ -44,8 +45,8 @@ void COptimiserMOM::Optimise (double target)
 	auto multipliers = std::vector<double>();
 	multipliers.resize(m_vConstraints.size()); // VS initialised the vector to zero
 	auto ptrPenalisedObjective = std::make_shared<CCompoundMOMFunction>(m_ptrOptimisableFunction, m_vConstraints, multipliers);
-	auto deltaOOF(realEmpty);
-	double valueMainFunction(realEmpty);
+	auto deltaOOF(std::numeric_limits<double>::max());
+	double valueMainFunction(std::numeric_limits<double>::max());
 	ptrPenalisedObjective->SetPenaltyFactor(m_rPenalty);
 
 	size_t iIteration (0);

@@ -1,9 +1,13 @@
-// OptimiserGRG.cpp
+// STLExtension.h
 //
 // 2016
 //////////////////////////////////////////////////
 
+#ifdef _WIN32
 #include "stdafx.h"
+#endif
+
+#include <cassert>
 #include <algorithm>
 #include <boost/iterator/zip_iterator.hpp>
 #include <boost/numeric/conversion/cast.hpp>
@@ -22,16 +26,23 @@ void pop_front (std::vector<T>& vec)
 template<typename T, typename U, typename V, typename ZipFunc>
 void ZippedTransform (T& container1, U& container2, V& container3, ZipFunc zip_func)
 {
+/*
 	auto itBegin = boost::make_zip_iterator (boost::make_tuple (container1.begin (), container2.begin (), container3.begin ()));
 	auto itEnd = boost::make_zip_iterator (boost::make_tuple (container1.end (), container2.end (), container3.end ()));
-	enum { eContainer1, eContainer2, eContainer3, };
+	enum class Containers 
+	{ 
+		eContainer1 = 0, 
+		eContainer2, 
+		eContainer3 
+	};
 
 	for (auto it = itBegin; it != itEnd; ++it)
 	{
-		it->get<eContainer3> () = zip_func (it->get<eContainer1> (), it->get<eContainer2> ()> ());
+		it->get<Containers::eContainer3>() = zip_func (it->get<Containers::eContainer1> (), it->get<Containers::eContainer2> ()> ());
 	}
 
 	//	std::transform(	itBegin, itEnd, itBegin, zip_func() );
+*/
 }
 
 //////////////////////////////////////////////////
@@ -39,9 +50,16 @@ void ZippedTransform (T& container1, U& container2, V& container3, ZipFunc zip_f
 template< typename T, typename U, typename V, typename W, typename ZipFunc>
 void ZippedTransform (T& container1, U& container2, V& container3, W& container4, ZipFunc zip_func)
 {
+/*
 	auto itBegin = boost::make_zip_iterator (boost::make_tuple (container1.begin (), container2.begin (), container3.begin (), container4.begin ()));
 	auto itEnd = boost::make_zip_iterator (boost::make_tuple (container1.end (), container2.end (), container3.end (), container4.end ()));
-	enum { eContainer1, eContainer2, eContainer3, eContainer4, };
+	enum class Containers 
+	{ 
+		eContainer1 = 0, 
+		eContainer2, 
+		eContainer3, 
+		eContainer4
+	};
 
 	for (auto it = itBegin; it != itEnd; ++it)
 	{
@@ -49,6 +67,7 @@ void ZippedTransform (T& container1, U& container2, V& container3, W& container4
 	}
 
 //	std::transform( itBegin, itEnd, itBegin, zip_func);
+*/
 }
 
 //////////////////////////////////////////////////
@@ -74,7 +93,7 @@ T apply_permutation (
 {
 	T sorted_vec(boost::numeric_cast<U>(p.size()));
 	assert (vec.size() == p.size());
-	std::transform (p.begin(), p.end(), stdext::unchecked_array_iterator<decltype(sorted_vec.begin())>(sorted_vec.begin()), [&](U i) { return vec[i]; });
+	//std::transform (p.begin(), p.end(), stdext::unchecked_array_iterator<decltype(sorted_vec.begin())>(sorted_vec.begin()), [&](U i) { return vec[i]; });
 	return sorted_vec;
 }
 

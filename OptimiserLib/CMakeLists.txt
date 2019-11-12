@@ -23,7 +23,7 @@ set(CMAKE_DEBUG_POSTFIX "-dbg")
 find_package(Boost REQUIRED)
 find_package(Armadillo REQUIRED)
 
-#add_subdirectory(FunctionDLL)
-#add_subdirectory(OptimiserDLL)
+add_subdirectory(FunctionDLL)
+add_subdirectory(OptimiserDLL)
 #add_subdirectory(OptimiserTestDrive)
 
