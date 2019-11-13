@@ -3,7 +3,9 @@
 // 2016
 //////////////////////////////////////////////////
 
+#ifdef _WIN32
 #include "stdafx.h"
+#endif
 
 //////////////////////////////////////////////////
 
@@ -23,9 +25,12 @@ private:
 
 public:
 
-	CLinearConstraintImpl (EConstraintType ePredicate, double rLimit, arma::vec& vCoeff) : 
-		m_rConstraintLimit (rLimit), m_vConstraintCoeff (vCoeff), m_eType (ePredicate) {};
-//	~CLinearConstraintImpl () {};
+	CLinearConstraintImpl (EConstraintType ePredicate, double rLimit, const arma::vec& vCoeff) 
+		: m_vConstraintCoeff (vCoeff)
+		, m_rConstraintLimit (rLimit)
+		, m_eType (ePredicate) 
+	{
+	}
 
 	arma::vec GetCoeff () const override { return m_vConstraintCoeff; }
 	void SetCoeff (arma::vec& vCoef) override { m_vConstraintCoeff = vCoef; }

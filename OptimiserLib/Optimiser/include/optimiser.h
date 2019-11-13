@@ -129,7 +129,7 @@ protected:
 class OPTIMISER IExtremum
 {
 public:
-	virtual void SetDirectionVector (arma::vec& vector) = 0;
+	virtual void SetDirectionVector (const arma::vec& vector) = 0;
 	virtual void SetLeftBracketRange (double rLeft) = 0;
 	virtual void SetRightBracketRange (double rRight) = 0;
 
@@ -143,7 +143,7 @@ class OPTIMISER BExtremum : public BOptimiser, public IExtremum
 public:
 	BExtremum () {}
 
-	void SetDirectionVector (arma::vec& vector) override
+	void SetDirectionVector (const arma::vec& vector) override
 	{
 		BOptimiser::SetInitialGuess(vector);
 	}

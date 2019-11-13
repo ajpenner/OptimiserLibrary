@@ -25,5 +25,5 @@ find_package(Armadillo REQUIRED)
 
 add_subdirectory(FunctionDLL)
 add_subdirectory(OptimiserDLL)
-#add_subdirectory(OptimiserTestDrive)
+add_subdirectory(OptimiserTestDrive)
 

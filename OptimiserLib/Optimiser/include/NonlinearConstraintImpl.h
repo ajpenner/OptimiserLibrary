@@ -3,7 +3,9 @@
 // 2016
 //////////////////////////////////////////////////
 
+#ifdef _WIN32
 #include "stdafx.h"
+#endif
 
 //////////////////////////////////////////////////
 
@@ -27,7 +29,7 @@ private:
 
 public:
 
-	CNonlinearConstraintImpl(EConstraintType ePredicate, std::shared_ptr<const IFunction> ptrConstraint, double rLimit = realZero) :
+	CNonlinearConstraintImpl(EConstraintType ePredicate, std::shared_ptr<const IFunction> ptrConstraint, double rLimit = 0x0) :
 		m_rConstraintLimit (rLimit), m_ptrConstraint(ptrConstraint), m_eType(ePredicate)
 	{
 	};

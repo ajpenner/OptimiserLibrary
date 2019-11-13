@@ -23,7 +23,7 @@ public:
 	void SetLeftBracket (const arma::vec& v) override { m_LeftBracket = v; }
 	void SetRightBracket (const arma::vec& v) override { m_RightBracket = v; }
 
-	void SetDirectionVector (arma::vec& v) override { m_MinVector = v; }
+	void SetDirectionVector (const arma::vec& v) override { m_MinVector = v; }
 	void SetLeftBracketRange (double rLeft) override { m_LeftBracket = (rLeft*m_MinVector).eval (); }
 	void SetRightBracketRange (double rRight) override { m_RightBracket = (rRight*m_MinVector).eval (); }
 
