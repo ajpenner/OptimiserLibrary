@@ -54,12 +54,12 @@ void COptimiserEllipsoid::Optimise (double target)
 
 	auto rDim = static_cast<double>(iDim);
 	size_t uIteration = 0;
-	while( m_uMaxIterati Sons > uIteration)
+	while( m_uMaxIterations > uIteration )
 	{
-		auto violatedConstraint = std::find_if (m_vConstraints.cbegin (), m_vConstraints.cend (), 
-			[this](const decltype(*m_vConstraints.cbegin ())& value) 
-		{ 
-			return !value->IsSatisfied (this->GetVector ()); 
+		auto violatedConstraint = std::find_if (m_vConstraints.cbegin (), m_vConstraints.cend (),
+			[this](const decltype(*m_vConstraints.cbegin ())& value)
+		{
+			return !value->IsSatisfied (this->GetVector ());
 		});
 
 		if (violatedConstraint == m_vConstraints.cend())

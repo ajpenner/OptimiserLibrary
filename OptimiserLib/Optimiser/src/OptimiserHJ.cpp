@@ -54,8 +54,8 @@ void COptimiserHJ::InverseOptimise(double target)
 void COptimiserHJ::SetParameters (const std::vector<variant>& parameters)
 {
 	assert (parameters.size () >= 2);
-	m_IncrementFactor = boost::get<double>(parameters[HJParameters::eIncrement]);
-	m_ReductionFactor = boost::get<double>(parameters[HJParameters::eReduction]);
+	m_IncrementFactor = boost::get<double>(parameters[static_cast<int>(HJParameters::eIncrement)]);
+	m_ReductionFactor = boost::get<double>(parameters[static_cast<int>(HJParameters::eReduction)]);
 };
 
 //////////////////////////////////////////////////

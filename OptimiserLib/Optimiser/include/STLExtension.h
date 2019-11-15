@@ -88,7 +88,7 @@ void ZippedTransform (Modified& container1, T& container2, U& container3, V& con
 template <typename U, typename T, typename Compare>
 std::vector<U> sort_permutation (
 	const T& vec,
-	Compare& compare)
+	const Compare& compare)
 {
 	std::vector<U> p(vec.size());
 	std::iota(p.begin (), p.end (), 0);
